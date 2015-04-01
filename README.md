@@ -1,9 +1,7 @@
 # JSF2Leaf
 This is a JSF2 component that wraps the Leaflet javascript library into a single .jar library file. This allow a simple way to insert maps into your application using just a tag.
 
-<div align="center"><br><img width="50%" src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/primefaces.png"></div>
-
-This component wraps just the basic parameters of Leaflet, to use advanced features like custom icons, polylines, events, layers etc, you need use the Leaflet API directly, this is possible because you can access the handler of the generated map throught the 'mapId' parameter.
+<br><div align="center"><img width="50%" src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/primefaces.png"></div>
 
 ### Features
 * Simple - Just a single tag and you have a map!
@@ -37,6 +35,6 @@ maxZoom="19" minZoom="1" dragging="false" zoomControl="false" attribution="JSF2L
 ```
 <br><img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/full.png">
 
-
-
+## Advanced
+This component wraps just the basic parameters of Leaflet, to use advanced features like custom icons, polylines, events, layers etc, you need use the Leaflet API directly, this is possible because you can access the handler of the generated map throught the 'mapId' parameter.
 

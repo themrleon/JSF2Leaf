@@ -3,13 +3,13 @@ This is a JSF2 component that wraps the Leaflet map library into a single .jar f
 
 ### Features
 * Simple - Just a single tag and you have a map!
-* Small - Library size of 41 kb
+* Small - Library's size ~ 41 kb
 * Easy - No need to know the Leaflet API
 
 <div align="center"><img width="30%" src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/primefaces.png"></div>
 
 ## Usage
-Just copy the library .jar file to:
+Just copy <a href="https://github.com/themrleon/JSF2Leaf/raw/master/jsf2leaf.jar">jsf2leaf.jar</a> to:
 ```
 <project_dir>\WebContent\WEB-INF\lib
 ```

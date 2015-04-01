@@ -1,0 +1,77 @@
+<!--
+A JSF2 Leaflet wrapper component for OpenStreetMap
+Copyright (C) 2015 Leonardo Ciocari
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details. 
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+
+
+<composite:interface>
+	<composite:attribute name="center" required="true" type="java.lang.String" />
+	<composite:attribute name="marker" type="java.lang.String" />
+	<composite:attribute name="popupMsg" type="java.lang.String" />
+	<composite:attribute name="mapId" default="jsf2leaf_map" type="java.lang.String" />
+	<composite:attribute name="zoom"  default="10" type="java.lang.String" />
+	<composite:attribute name="width" default="300px" type="java.lang.String" />
+	<composite:attribute name="height" default="200px" type="java.lang.String" />
+	<composite:attribute name="minZoom" default="1" type="java.lang.String" />
+	<composite:attribute name="maxZoom" default="19" type="java.lang.String" />
+	<composite:attribute name="dragging" default="true" type="java.lang.Boolean" />
+	<composite:attribute name="zoomControl" default="true" type="java.lang.Boolean" />
+	<composite:attribute name="zoomGlobal" default="true" type="java.lang.Boolean" />
+	<composite:attribute name="attribution" default="Map data &copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors,&lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;" type="java.lang.String" />
+</composite:interface>
+
+<composite:implementation>
+
+	<head>
+		<link rel="stylesheet" href="#{resource['css:leaflet.css']}" />
+		<script src="#{resource['js:leaflet.js']}"></script>
+	</head>
+
+	<div id="jsf2leaf_#{cc.attrs.mapId}_container" style="width:#{cc.attrs.width}; height:#{cc.attrs.height}"/>
+	
+	<script>	
+		var jsf2leaf_#{cc.attrs.mapId}_layer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {id: 'osm', attribution: '#{cc.attrs.attribution}', maxZoom: #{cc.attrs.maxZoom}, minZoom: #{cc.attrs.minZoom}});    
+		var jsf2leaf_#{cc.attrs.mapId}_map = L.map('jsf2leaf_#{cc.attrs.mapId}_container', {center: [#{cc.attrs.center}], zoom: #{cc.attrs.zoom}, layers: jsf2leaf_#{cc.attrs.mapId}_layer, dragging:#{cc.attrs.dragging}, zoomControl:#{cc.attrs.zoomControl} });
+		var LeafIcon = L.Icon.extend({options:{iconSize: [25, 41], iconAnchor: [25, 41], popupAnchor: [-12, -45]}});
+		var Icon = new LeafIcon({iconUrl: '#{resource['images:marker.png']}' });
+
+		if('#{cc.attrs.marker}')
+		{
+			var jsf2leaf_#{cc.attrs.mapId}_marker = L.marker([#{cc.attrs.marker}],{icon: Icon}).addTo(jsf2leaf_#{cc.attrs.mapId}_map);
+		
+			if('#{cc.attrs.popupMsg}')
+				jsf2leaf_#{cc.attrs.mapId}_marker.bindPopup('#{cc.attrs.popupMsg}');
+		}
+		
+		if(!#{cc.attrs.zoomGlobal})
+		{
+			jsf2leaf_#{cc.attrs.mapId}_map.touchZoom.disable();
+			jsf2leaf_#{cc.attrs.mapId}_map.doubleClickZoom.disable();
+			jsf2leaf_#{cc.attrs.mapId}_map.scrollWheelZoom.disable();
+			jsf2leaf_#{cc.attrs.mapId}_map.boxZoom.disable();
+			jsf2leaf_#{cc.attrs.mapId}_map.keyboard.disable();
+		}
+	</script>
+
+</composite:implementation>
+
+</html>

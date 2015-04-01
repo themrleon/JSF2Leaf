@@ -1,7 +1,7 @@
 # JSF2Leaf
 This is a JSF2 component that wraps the Leaflet javascript library into a single .jar library file. This allow a simple way to insert maps into your application using just a tag.
 
-<br><div align="center"><img width="50%" src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/primefaces.png"></div>
+<div align="center"><img width="30%" src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/primefaces.png"></div>
 
 ### Features
 * Simple - Just a single tag and you have a map!

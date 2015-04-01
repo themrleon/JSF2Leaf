@@ -1,5 +1,5 @@
 # JSF2Leaf
-This is a JSF2 component that wraps the Leaflet map library into a single .jar file. This allow a simpler way to insert maps into your application using just a tag, like any other JSF component.
+This is a JSF2 component that wraps the Leaflet map library into a single .jar library file. This allow a simpler way to insert maps into your application using just a tag, like any other JSF component. The map provider is OpenStreetMap.
 
 ### Features
 * Simple - Just a single tag and you have a map!

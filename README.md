@@ -1,5 +1,5 @@
 # JSF2Leaf
-This is a JSF2 component that wraps the Leaflet javascript library into a single .jar library file. This allow a simple way to insert maps into your application using just a tag.
+This is a JSF2 component that wraps the Leaflet map library into a single .jar file. This allow a simpler way to insert maps into your application using just a tag, like any other JSF component.
 
 ### Features
 * Simple - Just a single tag and you have a map!
@@ -24,7 +24,7 @@ Simplest way to insert a map:
 ```
 <leaf:map center="-15.601875,-50.141602" />
 ```
-<br><img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/default.png">
+<img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/default.png">
 
 Specifying all the possible parameters:
 ```
@@ -42,7 +42,7 @@ dragging="false"
 zoomControl="false" 
 attribution="JSF2Leaf" />
 ```
-<br><img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/full.png">
+<img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/full.png">
 
 ## License
 GPLv2 License, details <a href="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/LICENSE">HERE</a>.

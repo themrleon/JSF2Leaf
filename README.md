@@ -44,5 +44,7 @@ attribution="JSF2Leaf" />
 ```
 <img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/full.png">
 
+The parameters list can be found <a href="https://github.com/themrleon/JSF2Leaf/raw/master/parameters.pdf">HERE</a>.
+
 ## License
 GPLv2 License, details <a href="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/LICENSE">HERE</a>.

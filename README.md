@@ -3,7 +3,7 @@ This is a JSF2 component that wraps the <a href="http://leafletjs.com">Leaflet</
 
 ### Features
 * Simple - Just a single tag and you have a map!
-* Small - Library's size ~ 41 kb
+* Small - Library's size ~ 42 kb
 * Easy - No need to know Leaflet or any other map API
 
 ## Usage

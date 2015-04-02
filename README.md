@@ -6,8 +6,6 @@ This is a JSF2 component that wraps the <a href="http://leafletjs.com">Leaflet</
 * Small - Library's size ~ 41 kb
 * Easy - No need to know Leaflet or any other map API
 
-<div align="center"><img width="30%" src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/primefaces.png"></div>
-
 ## Usage
 Just copy <a href="https://github.com/themrleon/JSF2Leaf/raw/master/jsf2leaf.jar">jsf2leaf.jar</a> to:
 ```
@@ -22,24 +20,23 @@ xmlns:leaf="http://java.sun.com/jsf/composite/jsf2leaf"
 
 Simplest way to insert a map:
 ```
-<leaf:map center="-15.601875,-50.141602" />
+<leaf:map center="42.120000,-72.540000" />
 ```
-<img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/default.png">
+<img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/simple.png">
 
-Specifying all the possible parameters:
+Specifying all possible parameters:
 ```
-<leaf:map mapId="mymap1" 
-center="-15.601875,-50.141602"  
-marker="-15.601875,-50.141602" 
-popupMsg="ACME&lt;br&gt;Phone: 555-5555" 
+<leaf:map center="42.120000,-72.540000" 
+marker="42.120000,-72.540000"
+popupMsg="Krusty Burger&lt;br&gt; Phone: 555-5555" 
 zoomGlobal="false" 
-zoom="10" 
+zoom="12"
 width="300px" 
 height="200px" 
 maxZoom="19" 
 minZoom="1" 
-dragging="false" 
-zoomControl="false" 
+dragging="false"
+zoomControl="false"
 attribution="JSF2Leaf" />
 ```
 <img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/full.png">

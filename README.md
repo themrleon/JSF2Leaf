@@ -22,7 +22,7 @@ Simplest way to insert a map:
 ```
 <leaf:map center="42.120000,-72.540000" />
 ```
-<img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/basic.png">
+<img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/simple.png">
 
 Specifying all possible parameters:
 ```

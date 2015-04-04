@@ -1,0 +1,7 @@
+To use this lib just copy "jsf2leaf.jar" to:
+<project_dir>\WebContent\WEB-INF\lib
+
+Then in your .xhtml file insert the library namespace:
+xmlns:leaf="http://java.sun.com/jsf/composite/jsf2leaf"
+
+Now you will have access to the <leaf:map /> and <leaf:mapAdvanced /> tags!

@@ -4,7 +4,7 @@ This is a JSF2 component that wraps the <a href="http://leafletjs.com">Leaflet</
 ### Features
 * Simple - Just a single tag and you have a map!
 * Small - Library's size ~ 42 kb
-* Easy - No need to know Leaflet or any other map API
+* Easy - No need to know Leaflet, javascript or any map API
 
 ## Usage
 Just copy <a href="https://github.com/themrleon/JSF2Leaf/raw/master/jsf2leaf.jar">jsf2leaf.jar</a> to:

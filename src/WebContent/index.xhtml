@@ -7,18 +7,29 @@
 	xmlns:leaf="http://java.sun.com/jsf/composite/jsf2leaf">
 
 <h:body>
-	<h2>JSF2Leaf - Component Test Page</h2>
+	<div align="center">
+		<h2>JSF2Leaf v1.1 - Component Test Page</h2>
 
-	Basic
-	<leaf:map center="42.120000,-72.540000" />
+		<table>
+			<tr>
+				<th>Basic Map <leaf:map center="42.120000,-72.540000" />
+				</th>
 
-	<br />
-	Full parameters
-	<leaf:map center="42.120000,-72.540000" marker="42.120000,-72.540000"
-		popupMsg="Krusty Burger&lt;br&gt; Phone: 555-5555" zoomGlobal="false" zoom="12"
-		width="300px" height="200px" maxZoom="19" minZoom="1" dragging="false"
-		zoomControl="false" attribution="JSF2Leaf" />
+				<th>Full Parameters Map <leaf:map center="42.120000,-72.540000"
+						marker="42.120000,-72.540000"
+						popupMsg="Krusty Burger&lt;br&gt; Phone: 555-5555"
+						zoomGlobal="false" zoom="12" width="300px" height="200px"
+						maxZoom="19" minZoom="1" dragging="false" zoomControl="false"
+						attribution="JSF2Leaf" />
+				</th>
+			</tr>
 
+		</table>
+
+		<b>Advanced Map</b>
+		<leaf:mapAdvanced map="#{testBean.springfieldMap}" />
+
+	</div>
 </h:body>
 
 </html>

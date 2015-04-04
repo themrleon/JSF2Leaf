@@ -82,7 +82,7 @@ import com.jsf2leaf.model.Polyline;
 ```
 <img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/advanced.png">
 
-All classes support concatenation of methods and have a toString() method for debug purposes. Details <a href="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/doc/index.html">HERE</a>.
+All classes support concatenation of methods and have a toString() method for debug purposes. Details can be found in the javadoc folder.
 
 ## License
 GPLv2 License, details <a href="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/LICENSE">HERE</a>.

@@ -46,9 +46,9 @@ attribution="JSF2Leaf" />
 The parameters list can be found <a href="https://github.com/themrleon/JSF2Leaf/raw/master/parameters.pdf">HERE</a>.
 
 ## Advanced Map
-Advanced map should be used if you want advanced features like markers, layers etc, or just want build the map from Java Bean. The tag `:mapAdvanced` have just the `map` parameter, it receives the Map object built in the Bean. The Map object can be built using these JSF2Leaf's classes: 'Marker', 'Layer' and 'Map'. These classes will be available after the lib installation and import in the Bean. Look:
+Advanced map should be used if you want advanced features like markers, layers etc, or just want build the map from Java Bean. The tag `<leaf:mapAdvanced />` have just the `map` parameter, it receives the Map object built in the Bean. The Map object can be built using these JSF2Leaf's classes: 'Marker', 'Layer' and 'Map'. These classes will be available after the lib installation and import in the Bean. Look:
 
-usage:
+test.xhtml:
 ```
 <leaf:mapAdvanced map="#{testBean.springfieldMap}" />
 ```
@@ -73,7 +73,6 @@ import com.jsf2leaf.model.Marker;
 		
 		springfieldMap.setCenter("42.120954,-72.538862").setZoom(12);
 		springfieldMap.addLayer(placesLayer).addLayer(riversLayer);
-	}
 ...
 ```
 <img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/advanced.png">

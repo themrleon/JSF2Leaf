@@ -3,9 +3,9 @@ JSF2Leaf is a JavaServer Faces component that allows a simpler way to insert map
 
 ### Features
 * Simple, just a single tag and you have a map!
-* Support Markers, Layers, Polylines and Circles
-* Small ~ 53 kb
+* Support: Markers, Layers, Polylines and Circles
 * Easy, no need to know Leaflet, javascript or any other map API !
+* Small ~ 53 kb
 
 ## Usage
 Just copy <a href="https://github.com/themrleon/JSF2Leaf/raw/master/lib/jsf2leaf.jar">jsf2leaf.jar</a> to:
@@ -47,7 +47,7 @@ attribution="JSF2Leaf" />
 The parameters list can be found <a href="https://github.com/themrleon/JSF2Leaf/raw/master/docs/map.pdf">HERE</a>.
 
 ## Advanced Map
-Advanced map should be used if you want advanced features like markers, layers etc, as well as build the map from Java Bean. The tag `<leaf:mapAdvnaced />` have just the `map` parameter, that receives the Map object built in the Bean. The Map object can be built using the JSF2Leaf's classes, which will be available after the lib installation and import in the Bean. Look:
+Advanced map should be used if you want advanced features like markers, layers etc, as well as build the map from Java Bean. The tag `<leaf:mapAdvnaced />` have just the `map` parameter, that receives the Map object built in the Bean. JSF2Leaf supply all the classes needed to build the Map object, they will be available after the lib installation and import in the Bean. Look:
 
 test.xhtml:
 ```
@@ -81,6 +81,8 @@ import com.jsf2leaf.model.Polyline;
 ...
 ```
 <img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/advanced.png">
+
+The classes documentation can be found <a href="https://github.com/themrleon/JSF2Leaf/raw/master/docs/mapadvanced.pdf">HERE</a>.
 
 ## License
 GPLv2 License, details <a href="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/LICENSE">HERE</a>.

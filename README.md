@@ -1,10 +1,10 @@
-# JSF2Leaf
-This is a JSF2 component that wraps the <a href="http://leafletjs.com">Leaflet</a> map library into a single .jar library file. This allow a simpler way to insert maps into your application using just a tag, like any other JSF component. The map provider is <a href="http://www.openstreetmap.org">OpenStreetMap</a>.
+# Overview
+JSF2Leaf is a JavaServer Faces component that allows a simpler way to insert a map into your webpage using just a tag, like any other JSF component. This is possible because JSF2Leaf wraps the <a href="http://leafletjs.com">Leaflet</a> map library, using <a href="http://www.openstreetmap.org">OpenStreetMap</a> as map provider.
 
 ### Features
 * Simple - Just a single tag and you have a map!
-* Small - Library's size ~ 42 kb
-* Easy - No need to know Leaflet, javascript or any map API
+* Small - Library's size ~ 50 kb
+* Easy - No need to know Leaflet, javascript or any other map API
 
 ## Usage
 Just copy <a href="https://github.com/themrleon/JSF2Leaf/raw/master/jsf2leaf.jar">jsf2leaf.jar</a> to:
@@ -15,8 +15,10 @@ Then in your .xhtml file insert the library namespace:
 ```
 xmlns:leaf="http://java.sun.com/jsf/composite/jsf2leaf"
 ```
+Now you will have access to the `<leaf:map />` and `<leaf:mapAdvanced />` tags. 
 
-## Examples
+## Simple Map
+For a simple map, `<leaf:map />` should be used, because all parameters can be set as tag's attributes and a Bean is not really necessary, however, there are some limitations, you can add only a single marker and no layers. Look:
 
 Simplest way to insert a map:
 ```
@@ -42,6 +44,39 @@ attribution="JSF2Leaf" />
 <img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/full.png">
 
 The parameters list can be found <a href="https://github.com/themrleon/JSF2Leaf/raw/master/parameters.pdf">HERE</a>.
+
+## Advanced Map
+Advanced map should be used if you want advanced features (markers, layers etc) or just want build it from the Java Bean. The tag `:mapAdvanced` have just one parameter (`map`), the Map object that must be filled in the Bean. JSF2Leaf have 3 classes that must be used to create a Map object: Marker, Layer and Map. Look:
+
+Advanced map usage:
+```
+<leaf:mapAdvanced map="#{testBean.springfieldMap}" />
+```
+testBean.java:
+```
+import com.jsf2leaf.model.Layer;
+import com.jsf2leaf.model.Map;
+import com.jsf2leaf.model.Marker;
+...
+	private Map springfieldMap = new Map();
+...
+		Layer placesLayer = new Layer();
+		placesLayer.setLabel("Places");
+		placesLayer.addMarker(new Marker("42.120000","-72.540000","<b>Krusty Burger</b><br>Phone: 555-5555"));
+		placesLayer.addMarker(new Marker("42.121456","-72.533680","Sideshow Bob Hideout"));
+		placesLayer.addMarker(new Marker("42.114556","-72.526309","<b>Elementary School</b><br>Skinner&#39;s Phone: 555-5555"));
+		placesLayer.addMarker(new Marker("42.120286","-72.547488","<b>Hospital</b><br>Dr. Hibbert lol"));
+	
+		Layer riversLayer = new Layer();
+		riversLayer.setLabel("Rivers");
+		riversLayer.addMarker(new Marker("42.104702","-72.530923")).addMarker(new Marker("42.111707","-72.541008")).addMarker(new Marker("42.102824","-72.551394"));
+		
+		springfieldMap.setCenter("42.120954,-72.538862").setZoom(12);
+		springfieldMap.addLayer(placesLayer).addLayer(riversLayer);
+	}
+...
+```
+<img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/advanced.png">
 
 ## License
 GPLv2 License, details <a href="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/LICENSE">HERE</a>.

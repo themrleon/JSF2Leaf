@@ -57,6 +57,9 @@ public class Layer {
 		return checked;
 	}
 
+	/**
+	 * Set if the Layer checkbox will be checked
+	 */
 	public Layer setChecked(boolean checked) {
 		this.checked = checked;
 		return this;
@@ -66,6 +69,9 @@ public class Layer {
 		return label;
 	}
 
+	/**
+	 * Set the Layer checkbox label
+	 */
 	public Layer setLabel(String label) {
 		this.label = label;
 		return this;

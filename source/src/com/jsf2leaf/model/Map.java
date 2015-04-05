@@ -50,6 +50,9 @@ public class Map {
 		return layerControl;
 	}
 
+	/**
+	 * Set if the Map will have the layers checkbox control panel
+	 */
 	public Map setLayerControl(boolean layerControl) {
 		this.layerControl = layerControl;
 		return this;
@@ -77,6 +80,9 @@ public class Map {
 		return center;
 	}
 
+	/**
+	 * Set the Map start position
+	 */
 	public Map setCenter(LatLong center) {
 		this.center = center;
 		return this;
@@ -86,6 +92,9 @@ public class Map {
 		return attribution;
 	}
 
+	/**
+	 * Set the Map attribution/credits
+	 */
 	public Map setAttribution(String attribution) {
 		this.attribution = attribution;
 		return this;
@@ -95,6 +104,9 @@ public class Map {
 		return zoom;
 	}
 
+	/**
+	 * Set the initial Map zoom
+	 */
 	public Map setZoom(int zoom) {
 		this.zoom = zoom;
 		return this;
@@ -104,6 +116,9 @@ public class Map {
 		return minZoom;
 	}
 
+	/**
+	 * Set the minimum allowed zoom of the Map 
+	 */
 	public Map setMinZoom(int minZoom) {
 		this.minZoom = minZoom;
 		return this;
@@ -113,6 +128,9 @@ public class Map {
 		return maxZoom;
 	}
 
+	/**
+	 * Set the maximum allowed zoom of the Map 
+	 */
 	public Map setMaxZoom(int maxZoom) {
 		this.maxZoom = maxZoom;
 		return this;
@@ -122,6 +140,9 @@ public class Map {
 		return zoomControl;
 	}
 
+	/**
+	 * Set if the Map will have the zoom buttons 
+	 */
 	public Map setZoomControl(boolean zoomControl) {
 		this.zoomControl = zoomControl;
 		return this;
@@ -131,6 +152,9 @@ public class Map {
 		return zoomEnabled;
 	}
 
+	/**
+	 * Set if zoom will be available on the Map 
+	 */
 	public Map setZoomEnabled(boolean zoomEnabled) {
 		this.zoomEnabled = zoomEnabled;
 		return this;
@@ -140,6 +164,9 @@ public class Map {
 		return dragging;
 	}
 
+	/**
+	 * Set if the Map will be allowed do move 
+	 */
 	public Map setDragging(boolean dragging) {
 		this.dragging = dragging;
 		return this;

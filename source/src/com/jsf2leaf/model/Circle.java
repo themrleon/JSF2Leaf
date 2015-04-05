@@ -37,6 +37,10 @@ public class Circle {
 		return weight;
 	}
 
+	/**
+	 * Set the width of the Circle border
+	 * @param weight Width in pixels
+	 */
 	public Circle setWeight(int weight) {
 		this.weight = weight;
 		return this;
@@ -55,6 +59,10 @@ public class Circle {
 		return fillColor;
 	}
 
+	/**
+	 * Set the Circle fill color, accepts HTML color codes
+	 * @param fillColor Ex: "blue" or "#FF0000"
+	 */
 	public Circle setFillColor(String fillColor) {
 		this.fillColor = fillColor;
 		return this;
@@ -64,6 +72,10 @@ public class Circle {
 		return fillOpacity;
 	}
 
+	/**
+	 * Set the Circle fill color transparency
+	 * @param fillOpacity Accepts 0.0 to 1.0, Where 0.0 = Transparent and 1.0 = Solid 
+	 */
 	public Circle setFillOpacity(double fillOpacity) {
 		this.fillOpacity = fillOpacity;
 		return this;
@@ -72,7 +84,10 @@ public class Circle {
 	public LatLong getPosition() {
 		return position;
 	}
-	
+
+	/**
+	 * Set the Circle center position
+	 */
 	public Circle setPosition(LatLong position) {
 		this.position = position;
 		return this;
@@ -82,6 +97,10 @@ public class Circle {
 		return radius;
 	}
 	
+	/**
+	 * Set the Circle radius
+	 * @param radius Meters unit
+	 */
 	public Circle setRadius(int radius) {
 		this.radius = radius;
 		return this;

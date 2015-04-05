@@ -46,6 +46,10 @@ public class Polyline {
 		return weight;
 	}
 
+	/**
+	 * Set the width of the Polyline
+	 * @param weight Width in pixels
+	 */
 	public Polyline setWeight(int weight) {
 		this.weight = weight;
 		return this;

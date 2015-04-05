@@ -8,7 +8,7 @@ JSF2Leaf is a JavaServer Faces component that allows a simpler way to insert map
 * Small ~ 53 kb
 
 ## Usage
-Just copy <a href="https://github.com/themrleon/JSF2Leaf/raw/master/lib/jsf2leaf.jar">jsf2leaf.jar</a> to:
+Just copy [jsf2leaf.jar](lib/jsf2leaf.jar?raw=true) to:
 ```
 <project_dir>\WebContent\WEB-INF\lib
 ```
@@ -25,7 +25,7 @@ Simplest way to insert a map:
 ```html
 <leaf:map center="42.120000,-72.540000" />
 ```
-<img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/simple.png">
+![](images/simple.png?raw=true)
 
 Specifying all possible parameters:
 ```html
@@ -42,9 +42,9 @@ dragging="false"
 zoomControl="false"
 attribution="JSF2Leaf" />
 ```
-<img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/full.png">
+![](images/full.png?raw=true)
 
-The parameters list can be found <a href="https://github.com/themrleon/JSF2Leaf/raw/master/docs/map.pdf">HERE</a>.
+The parameters list can be found [HERE](docs/map.pdf?raw=true).
 
 ## Advanced Map
 Advanced map should be used if you want advanced features like markers, layers etc, as well as build the map from Java Bean. The tag `<leaf:mapAdvnaced />` have just the `map` parameter, that receives the Map object built in the Bean. JSF2Leaf supply all the classes needed to build the Map object, they will be available after the lib installation and import in the Bean. Look:
@@ -80,9 +80,9 @@ import com.jsf2leaf.model.Polyline;
 		springfieldMap.addLayer(placesLayer).addLayer(riversLayer).addLayer(polycircleLayer);
 ...
 ```
-<img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/advanced.png">
+![](images/advanced.png?raw=true)
 
 All classes support concatenation of methods and have a toString() method for debug purposes. Details can be found in the javadoc folder.
 
 ## License
-GPLv2 License, details <a href="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/LICENSE">HERE</a>.
+GPLv2 License, details [HERE](LICENSE).

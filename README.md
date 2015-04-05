@@ -82,7 +82,7 @@ import com.jsf2leaf.model.Polyline;
 ```
 ![](images/advanced.png?raw=true)
 
-All classes support concatenation of methods and have a toString() method for debug purposes. Details can be found in the javadoc folder.
+All classes support concatenation of methods and have a toString() method for debug purposes. Details can be found [HERE](docs/mapadvanced.pdf?raw=true).
 
 ## License
 GPLv2 License, details [HERE](LICENSE).

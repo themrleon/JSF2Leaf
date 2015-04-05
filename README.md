@@ -22,13 +22,13 @@ Now you have access to the `<leaf:map />` and `<leaf:mapAdvanced />` tags !
 For a simple map, `<leaf:map />` should be used, because all parameters can be set in the tag and a Bean is not really necessary, however, there are some limitations, you can add only a single marker and no layers. Look:
 
 Simplest way to insert a map:
-```
+```html
 <leaf:map center="42.120000,-72.540000" />
 ```
 <img src="https://raw.githubusercontent.com/themrleon/JSF2Leaf/master/images/simple.png">
 
 Specifying all possible parameters:
-```
+```html
 <leaf:map center="42.120000,-72.540000" 
 marker="42.120000,-72.540000"
 popupMsg="Krusty Burger&lt;br&gt; Phone: 555-5555" 
@@ -50,11 +50,11 @@ The parameters list can be found <a href="https://github.com/themrleon/JSF2Leaf/
 Advanced map should be used if you want advanced features like markers, layers etc, as well as build the map from Java Bean. The tag `<leaf:mapAdvnaced />` have just the `map` parameter, that receives the Map object built in the Bean. JSF2Leaf supply all the classes needed to build the Map object, they will be available after the lib installation and import in the Bean. Look:
 
 test.xhtml:
-```
+```html
 <leaf:mapAdvanced map="#{testBean.springfieldMap}" />
 ```
 testBean.java:
-```
+```java
 import com.jsf2leaf.model.Circle;
 import com.jsf2leaf.model.LatLong;
 import com.jsf2leaf.model.Layer;

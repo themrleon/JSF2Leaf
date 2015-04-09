@@ -32,20 +32,27 @@ public class TestBean {
 
 	public TestBean()
 	{
+		//Configure Map
+		springfieldMap.setWidth("350px").setHeight("250px").setCenter(new LatLong("42.111707","-72.541008")).setZoom(13);
+		
+		//Places Layer
 		Layer placesLayer = (new Layer()).setLabel("Places");
 		placesLayer.addMarker(new Marker(new LatLong("42.120000","-72.540000"),"<b>Krusty Burger</b><br>Phone: 555-5555"));
 		placesLayer.addMarker(new Marker(new LatLong("42.114556","-72.526309"),"<b>Elementary School</b><br>Skinner&#39;s Phone: 555-5555"));
 		placesLayer.addMarker(new Marker(new LatLong("42.120286","-72.547488"),"<b>Hospital</b><br>Dr. Hibbert lol"));
-	
-		Layer riversLayer = (new Layer()).setLabel("Rivers");
-		riversLayer.addMarker(new Marker(new LatLong("42.104702","-72.530923"))).addMarker(new Marker(new LatLong("42.111707","-72.541008")));
-
+		springfieldMap.addLayer(placesLayer);
+		
+		//Cluster Layer
+		Layer clusterLayer = (new Layer()).setLabel("Cluster").setClusterEnabled(true);
+		for(double lat=42; lat<43; lat+=0.0001)	//10k markers !
+			clusterLayer.addMarker(new Marker(new LatLong(""+lat,"-72.547488"),lat+" -72.547488"));
+		springfieldMap.addLayer(clusterLayer);
+		
+		//Polyline and Circle Layer
 		Layer polycircleLayer = (new Layer()).setLabel("Polyline/Circle");
-		polycircleLayer.addPolyline((new Polyline()).addPoint(new LatLong("42.114556","-72.526309")).addPoint(new LatLong("42.120000","-72.540000")));
+		polycircleLayer.addPolyline((new Polyline()).addPoint(new LatLong("42.114556","-72.526309")).addPoint(new LatLong("42.120000","-72.540000")).addPoint(new LatLong("42.120286","-72.547488")));
 		polycircleLayer.addCircle((new Circle()).setPosition(new LatLong("42.111707","-72.541008")));
-
-		springfieldMap.setWidth("350px").setHeight("250px").setCenter(new LatLong("42.111707","-72.541008")).setZoom(13);
-		springfieldMap.addLayer(placesLayer).addLayer(riversLayer).addLayer(polycircleLayer);
+		springfieldMap.addLayer(polycircleLayer);
 	}
 
 	public Map getSpringfieldMap() {

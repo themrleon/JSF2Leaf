@@ -24,6 +24,47 @@ public class Layer {
 	private List<Circle> circles = new ArrayList<Circle>();
 	private String label;
 	private boolean checked = true;
+	private boolean clusterEnabled = false;
+	private int clusterDisableAtZoom = 19;
+	private int clusterMaxRadius = 80;
+
+	public int getClusterMaxRadius() {
+		return clusterMaxRadius;
+	}
+
+	/**
+	 * Set the maximum radius that a cluster will cover from the central marker
+	 * @param clusterMaxRadius Cluster radius in pixels
+	 */
+	public Layer setClusterMaxRadius(int clusterMaxRadius) {
+		this.clusterMaxRadius = clusterMaxRadius;
+		return this;
+	}
+
+	public int getClusterDisableAtZoom() {
+		return clusterDisableAtZoom;
+	}
+
+	/**
+	 * Set the the zoom level where cluster will be disabled, then you can see the markers
+	 * @param clusterDisableAtZoom Zoom level: 1 to 19
+	 */
+	public Layer setClusterDisableAtZoom(int clusterDisableAtZoom) {
+		this.clusterDisableAtZoom = clusterDisableAtZoom;
+		return this;
+	}
+
+	public boolean isClusterEnabled() {
+		return clusterEnabled;
+	}
+
+	/**
+	 * Enable layer clusterization, useful for large datasets
+	 */
+	public Layer setClusterEnabled(boolean clusterEnabled) {
+		this.clusterEnabled = clusterEnabled;
+		return this;
+	}
 
 	public List<Circle> getCircles() {
 		return circles;
@@ -96,7 +137,10 @@ public class Layer {
 	public String toString() {
 		return "Layer [markers=" + markers.toString() + ", polylines=" + polylines.toString()
 				+ ", circles=" + circles.toString() + ", label=" + label + ", checked="
-				+ checked + "]";
+				+ checked + ", cluster=" + clusterEnabled + ", clusterDisableAtZoom="
+				+ clusterDisableAtZoom + ", clusterMaxRadius="
+				+ clusterMaxRadius + "]";
 	}
+
 
 }

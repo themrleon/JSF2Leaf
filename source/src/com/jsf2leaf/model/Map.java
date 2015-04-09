@@ -29,20 +29,20 @@ public class Map {
 	private int maxZoom = 19;
 	private boolean zoomControl = true;
 	private boolean zoomEnabled = true;	
-	private boolean dragging = true;
+	private boolean draggingEnabled = true;
 	private boolean layerControl = true;
 
 	public List<Layer> getLayers() {
 		return layers;
 	}
 
-	public Map addLayer(List<Layer> l) {
-		this.layers.addAll(l);
+	public Map addLayer(List<Layer> layers) {
+		this.layers.addAll(layers);
 		return this;
 	}
 
-	public Map addLayer(Layer l) {
-		this.layers.add(l);
+	public Map addLayer(Layer layer) {
+		this.layers.add(layer);
 		return this;
 	}
 
@@ -160,15 +160,15 @@ public class Map {
 		return this;
 	}
 
-	public boolean isDragging() {
-		return dragging;
+	public boolean isDraggingEnabled() {
+		return draggingEnabled;
 	}
 
 	/**
 	 * Set if the Map will be allowed do move 
 	 */
-	public Map setDragging(boolean dragging) {
-		this.dragging = dragging;
+	public Map setDraggingEnabled(boolean draggingEnabled) {
+		this.draggingEnabled = draggingEnabled;
 		return this;
 	}
 
@@ -178,7 +178,7 @@ public class Map {
 				+ width + ", height=" + height + ", attribution=" + attribution
 				+ ", zoom=" + zoom + ", minZoom=" + minZoom + ", maxZoom="
 				+ maxZoom + ", zoomControl=" + zoomControl + ", zoomEnabled="
-				+ zoomEnabled + ", dragging=" + dragging + ", layerControl="
+				+ zoomEnabled + ", dragging=" + draggingEnabled + ", layerControl="
 				+ layerControl + "]";
 	}
 

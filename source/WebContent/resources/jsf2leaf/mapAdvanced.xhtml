@@ -31,6 +31,9 @@ GNU General Public License for more details.
 	<head>
 		<link rel="stylesheet" href="#{resource['css:leaflet.css']}" />
 		<script src="#{resource['js:leaflet.js']}"></script>
+		
+		<link rel="stylesheet" href="#{resource['css:markercluster.css']}" />
+		<script src="#{resource['js:markercluster.js']}"></script>
 	</head>
 
 	<style type="text/css">
@@ -42,7 +45,7 @@ GNU General Public License for more details.
 	<div id="#{cc.attrs.id}" style="width:#{cc.mapObject.width}; height:#{cc.mapObject.height}"/>
 
 	<script type="text/javascript">
-		var map_#{cc.attrs.id} = L.map('#{cc.attrs.id}', {center: [#{cc.mapObject.center.latitude},#{cc.mapObject.center.longitude}], dragging: #{cc.mapObject.dragging}, zoomControl: #{cc.mapObject.zoomControl} , zoom: #{cc.mapObject.zoom}});
+		var map_#{cc.attrs.id} = L.map('#{cc.attrs.id}', {center: [#{cc.mapObject.center.latitude},#{cc.mapObject.center.longitude}], dragging: #{cc.mapObject.draggingEnabled}, zoomControl: #{cc.mapObject.zoomControl} , zoom: #{cc.mapObject.zoom}});
 		
 		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {id: 'osm', attribution: '#{cc.mapObject.attribution}', maxZoom: #{cc.mapObject.maxZoom}, minZoom: #{cc.mapObject.minZoom}}).addTo(map_#{cc.attrs.id});
 
@@ -62,19 +65,22 @@ GNU General Public License for more details.
 	
 		//Layers
 		<ui:repeat value="#{cc.mapObject.layers}" var="layer">	
-			var layer = new L.LayerGroup();
 			
+			var layer = #{layer.clusterEnabled}?new L.MarkerClusterGroup({ disableClusteringAtZoom: #{layer.clusterDisableAtZoom}, maxClusterRadius: #{layer.clusterMaxRadius}}):new L.LayerGroup();
+		
 			if(#{cc.mapObject.layerControl})
 				layers.addOverlay(layer,"#{layer.label}");
-	
+			
 			//Markers
 			<ui:repeat value="#{layer.markers}" var="marker">
 				var marker = L.marker([#{marker.position.latitude}, #{marker.position.longitude}],{icon: icon});
-			
+					
 				if('#{marker.popupMsg}')
 					marker.bindPopup('#{marker.popupMsg}');
 				
-				marker.addTo(layer);	
+				marker.addTo(layer);
+				
+				map_#{cc.attrs.id}.addLayer(layer);
 			</ui:repeat>
 			
 			//Polylines
@@ -103,6 +109,7 @@ GNU General Public License for more details.
 			
 			if(#{layer.checked})
 				map_#{cc.attrs.id}.addLayer(layer);
+						
 		</ui:repeat>
 
 		layers.addTo(map_#{cc.attrs.id});

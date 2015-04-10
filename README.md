@@ -1,11 +1,11 @@
 # Overview
-JSF2Leaf is a JavaServer Faces component that allows a simpler way to insert maps into your webpage using just a tag, like any other JSF component. This is possible because JSF2Leaf wraps the <a href="http://leafletjs.com">Leaflet</a> map library, using <a href="http://www.openstreetmap.org">OpenStreetMap</a> as map provider.
+JSF2Leaf is a JavaServer Faces component that allows a simpler way to insert maps in your webpage using just a tag, like any other JSF component. This is possible because JSF2Leaf wraps the <a href="http://leafletjs.com">Leaflet</a> map library, using <a href="http://www.openstreetmap.org">OpenStreetMap</a> as map provider.
 
 ### Features
 * Simple, just a single tag and you have a map!
-* Support: Markers, Layers, Polylines and Circles
+* Support Markers, Layers, Polylines, Circles and [Clusterization](http://leaflet.github.io/Leaflet.markercluster/example/marker-clustering-realworld.10000.html)
 * Easy, no need to know Leaflet, javascript or any other map API !
-* Small ~ 53 kb
+* Small ~ 63 kb
 
 ## Usage
 Just copy [jsf2leaf.jar](lib/jsf2leaf.jar?raw=true) to:
@@ -47,7 +47,7 @@ attribution="JSF2Leaf" />
 The parameters list can be found [HERE](docs/map.pdf?raw=true).
 
 ## Advanced Map
-Advanced map should be used if you want advanced features like markers, layers etc, as well as build the map from Java Bean. The tag `<leaf:mapAdvnaced />` have just the `map` parameter, that receives the Map object built in the Bean. JSF2Leaf supply all the classes needed to build the Map object, they will be available after the lib installation and import in the Bean. Look:
+Advanced map should be used if you want advanced features like layers, polylines etc, as well build the map from Java Bean. The tag `<leaf:mapAdvnaced />` have just the `map` parameter, that receives the Map object built in the Bean. JSF2Leaf supply all the classes needed to build the Map object, they will be available after the lib installation and import in the Bean. Look:
 
 test.xhtml:
 ```html

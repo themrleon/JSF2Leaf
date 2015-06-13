@@ -7,6 +7,9 @@ JSF2Leaf is a JavaServer Faces component that allows a simpler way to insert map
 * Easy, no need to know Leaflet, javascript or any other map API !
 * Small ~ 63 kb
 
+#### Article
+<a href="http://www.l3oc.com/2015/06/jsf2leaf.html">http://www.l3oc.com/2015/06/jsf2leaf.html</a>
+
 ## Usage
 Just copy [jsf2leaf.jar](lib/jsf2leaf.jar?raw=true) to:
 ```

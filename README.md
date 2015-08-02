@@ -50,7 +50,7 @@ attribution="JSF2Leaf" />
 The parameters list can be found [HERE](docs/map.pdf?raw=true).
 
 ## Advanced Map
-Advanced map should be used if you want advanced features like multiple markers, layers, polylines etc, as well as build the map from Java Bean. The tag `<leaf:mapAdvnaced />` have just the `map` parameter, that receives the Map object built in the Bean. JSF2Leaf supply all the classes needed to build the Map object, they will be available after the lib installation and import in the Bean. Look:
+Advanced map should be used if you want advanced features like multiple markers, layers, polylines etc, as well as build the map from Java Bean. The tag `<leaf:mapAdvanced />` have just the `map` parameter, that receives the Map object built in the Bean. JSF2Leaf supply all the classes needed to build the Map object, they will be available after the lib installation and import in the Bean. Look:
 
 test.xhtml:
 ```html

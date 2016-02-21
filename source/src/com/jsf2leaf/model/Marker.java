@@ -18,16 +18,30 @@ public class Marker {
 
 	private LatLong position;
 	private String popupMsg;
+	private Pulse pulse;
 	
 	public Marker(LatLong position)
 	{
 		this.position = position;
+                this.pulse = new Pulse(false);
 	}
 	
 	public Marker(LatLong position, String popupMsg)
 	{
 		this.position = position;
 		this.popupMsg = popupMsg;
+                this.pulse = new Pulse(false);
+	}
+
+	public Marker(LatLong position, String popupMsg, Pulse pulse)
+	{
+		this.position = position;
+		this.popupMsg = popupMsg;
+                if (pulse == null) {
+                        this.pulse = new Pulse(false);
+                } else {
+        		this.pulse = pulse;
+                }
 	}
 
 	public LatLong getPosition() {
@@ -48,9 +62,20 @@ public class Marker {
 		return this;
 	}
 
+        public Pulse getPulse() {
+                return pulse;
+        }
+
+        public void setPulse(Pulse pulse) {
+                this.pulse = pulse;
+        }
+
 	@Override
 	public String toString() {
-		return "Marker [position=" + position.toString() + ", popupMsg=" + popupMsg + "]";
+		return "Marker [position=" + position.toString() 
+                        + ", popupMsg=" + popupMsg 
+                        + ", pulse=" + pulse 
+                        + "]";
 	}
 
 }

@@ -94,29 +94,31 @@ All classes support concatenation of methods and have a toString() method for de
 
 ## New version (february 2016) :
 You can display a minimap :
+test.xhtml:
 ```html
 miniMap="true"
 miniMapWidth="100"
 miniMapHeight="66"
 miniMapPosition="bottomleft"
 ```
+testBean.java:
 ```java
 springfieldMap.setMiniMap(true);
 springfieldMap.setMiniMapWidth(100);
 springfieldMap.setMiniMapHeight(66);
 springfieldMap.setMiniMapPosition("bottomright");
 ```
-
 ![](images/minimap.jpg?raw=true)
 
 You can use a "urlTemplate" customized to choose your <a href="http://wiki.openstreetmap.org/wiki/Tile_servers">tile server</a> or run offline :
+test.xhtml:
 ```html
 urlTemplate="http://tile.stamen.com/toner/{z}/{x}/{y}.png"
 ```
+testBean.java:
 ```java
 springfieldMap.setUrlTemplate("http://tile.stamen.com/toner/{z}/{x}/{y}.png");
 ```
-
 ![](images/offline.jpg?raw=true)
 
 ## License

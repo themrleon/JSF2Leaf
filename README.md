@@ -87,5 +87,12 @@ import com.jsf2leaf.model.Polyline;
 
 All classes support concatenation of methods and have a toString() method for debug purposes. Details can be found [HERE](docs/mapadvanced.pdf?raw=true).
 
+## New version (february 2016) :
+You can display a minimap :
+![](images/minimap.jpg?raw=true)
+
+You can use a "urlTemplate" customized to choose your tile server or run offline :
+![](images/offline.jpg?raw=true)
+
 ## License
 GPLv2 License, details [HERE](LICENSE).

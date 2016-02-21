@@ -105,16 +105,17 @@ springfieldMap.setMiniMap(true);
 springfieldMap.setMiniMapWidth(100);
 springfieldMap.setMiniMapHeight(66);
 springfieldMap.setMiniMapPosition("bottomright");
-...
+```
 
 ![](images/minimap.jpg?raw=true)
 
 You can use a "urlTemplate" customized to choose your <a href="http://wiki.openstreetmap.org/wiki/Tile_servers">tile server</a> or run offline :
 ```html
-urlTemplate="http://tile.stamen.com/toner/{z}/{x}/{y}.png"```
+urlTemplate="http://tile.stamen.com/toner/{z}/{x}/{y}.png"
+```
 ```java
 springfieldMap.setUrlTemplate("http://tile.stamen.com/toner/{z}/{x}/{y}.png");
-...
+```
 
 ![](images/offline.jpg?raw=true)
 

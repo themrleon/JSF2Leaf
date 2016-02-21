@@ -92,7 +92,7 @@ You can display a minimap :
 
 ![](images/minimap.jpg?raw=true)
 
-You can use a "urlTemplate" customized to choose your tile server or run offline :
+You can use a "urlTemplate" customized to choose your <a href="http://wiki.openstreetmap.org/wiki/Tile_servers">tile server</a> or run offline :
 
 ![](images/offline.jpg?raw=true)
 

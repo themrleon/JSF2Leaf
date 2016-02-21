@@ -89,9 +89,11 @@ All classes support concatenation of methods and have a toString() method for de
 
 ## New version (february 2016) :
 You can display a minimap :
+
 ![](images/minimap.jpg?raw=true)
 
 You can use a "urlTemplate" customized to choose your tile server or run offline :
+
 ![](images/offline.jpg?raw=true)
 
 ## License

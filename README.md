@@ -108,5 +108,11 @@ springfieldMap.setUrlTemplate("http://tile.stamen.com/toner/{z}/{x}/{y}.png");
 ```
 ![](images/offline.jpg?raw=true)
 
+You can add a <strong>pulse animation</strong> to yours markers by adding the following lines in testBean.java : 
+```java
+placesLayer.addMarker(new Marker(new LatLong("47.084461"," 2.400046"),"The center of France", new Pulse(true, 10, "#ff0000")));
+```
+![](images/pulse.jpg?raw=true)
+
 ## License
 GPLv2 License, details [HERE](LICENSE).

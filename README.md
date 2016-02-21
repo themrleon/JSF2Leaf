@@ -43,6 +43,11 @@ maxZoom="19"
 minZoom="1" 
 dragging="false"
 zoomControl="false"
+miniMap="true"
+miniMapWidth="100"
+miniMapHeight="66"
+miniMapPosition="bottomleft"
+urlTemplate="http://tile.stamen.com/toner/{z}/{x}/{y}.png"
 attribution="JSF2Leaf" />
 ```
 ![](images/full.png?raw=true)
@@ -89,10 +94,27 @@ All classes support concatenation of methods and have a toString() method for de
 
 ## New version (february 2016) :
 You can display a minimap :
+```html
+miniMap="true"
+miniMapWidth="100"
+miniMapHeight="66"
+miniMapPosition="bottomleft"
+```
+```java
+springfieldMap.setMiniMap(true);
+springfieldMap.setMiniMapWidth(100);
+springfieldMap.setMiniMapHeight(66);
+springfieldMap.setMiniMapPosition("bottomright");
+...
 
 ![](images/minimap.jpg?raw=true)
 
 You can use a "urlTemplate" customized to choose your <a href="http://wiki.openstreetmap.org/wiki/Tile_servers">tile server</a> or run offline :
+```html
+urlTemplate="http://tile.stamen.com/toner/{z}/{x}/{y}.png"```
+```java
+springfieldMap.setUrlTemplate("http://tile.stamen.com/toner/{z}/{x}/{y}.png");
+...
 
 ![](images/offline.jpg?raw=true)
 

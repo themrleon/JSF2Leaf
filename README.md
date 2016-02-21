@@ -43,6 +43,11 @@ maxZoom="19"
 minZoom="1" 
 dragging="false"
 zoomControl="false"
+miniMap="true"
+miniMapWidth="100"
+miniMapHeight="66"
+miniMapPosition="bottomleft"
+urlTemplate="http://tile.stamen.com/toner/{z}/{x}/{y}.png"
 attribution="JSF2Leaf" />
 ```
 ![](images/full.png?raw=true)
@@ -86,6 +91,28 @@ import com.jsf2leaf.model.Polyline;
 ![](images/advanced.png?raw=true)
 
 All classes support concatenation of methods and have a toString() method for debug purposes. Details can be found [HERE](docs/mapadvanced.pdf?raw=true).
+
+## New version (february 2016) :
+You can display a <strong>minimap</strong> by adding the following lines in testBean.java :
+```java
+springfieldMap.setMiniMap(true);
+springfieldMap.setMiniMapWidth(100);
+springfieldMap.setMiniMapHeight(66);
+springfieldMap.setMiniMapPosition("bottomright");
+```
+![](images/minimap.jpg?raw=true)
+
+You can <strong>work offline</strong> or choose your <a href="http://wiki.openstreetmap.org/wiki/Tile_servers">tile server</a> by adding the following lines in testBean.java : 
+```java
+springfieldMap.setUrlTemplate("http://tile.stamen.com/toner/{z}/{x}/{y}.png");
+```
+![](images/offline.jpg?raw=true)
+
+You can add a <strong>pulse animation</strong> to yours markers by adding the following lines in testBean.java : 
+```java
+placesLayer.addMarker(new Marker(new LatLong("47.084461"," 2.400046"),"The center of France", new Pulse(true, 10, "#ff0000")));
+```
+![](images/pulse.jpg?raw=true)
 
 ## License
 GPLv2 License, details [HERE](LICENSE).

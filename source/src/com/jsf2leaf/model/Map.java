@@ -31,6 +31,11 @@ public class Map {
 	private boolean zoomEnabled = true;	
 	private boolean draggingEnabled = true;
 	private boolean layerControl = true;
+	private boolean miniMap = true;
+	private int miniMapWidth = 100;
+	private int miniMapHeight = 100;
+	private String miniMapPosition = "bottomright";
+	private String urlTemplate = "http://{s}.tile.osm.org/{z}/{x}/{y}.png";
 
 	public List<Layer> getLayers() {
 		return layers;
@@ -170,8 +175,64 @@ public class Map {
 	public Map setDraggingEnabled(boolean draggingEnabled) {
 		this.draggingEnabled = draggingEnabled;
 		return this;
-	}
+	   }
 
+        public boolean isMiniMap() {
+                return miniMap;
+        }
+
+        /**
+         * Set if the Map will be allowed do draw a minmap
+         */
+        public void setMiniMap(boolean miniMap) {
+                this.miniMap = miniMap;
+        }
+
+        public int getMiniMapWidth() {
+            return miniMapWidth;
+        }
+
+        /**
+         * Set the width of the minimap. Example : "100px".
+         */
+        public void setMiniMapWidth(int miniMapWidth) {
+              this.miniMapWidth = miniMapWidth;
+        }
+
+        public int getMiniMapHeight() {
+              return miniMapHeight;
+        }
+
+        /**
+         * Set the height of the minimap. Example : "100px".
+         */
+        public void setMiniMapHeight(int miniMapHeight) {
+              this.miniMapHeight = miniMapHeight;
+        }
+
+        public String getMiniMapPosition() {
+                return miniMapPosition;
+        }
+
+        /**
+         * Set the position of the minimap. Example : "nottomleft".
+         */
+        public void setMiniMapPosition(String miniMapPosition) {
+               this.miniMapPosition = miniMapPosition;
+        }
+
+        public String getUrlTemplate() {
+            return urlTemplate;
+        }
+
+        /**
+         * Set the url of template (for example if you are offline).
+         * @param urlTemplate 
+         */
+        public void setUrlTemplate(String urlTemplate) {
+            this.urlTemplate = urlTemplate;
+        }
+        
 	@Override
 	public String toString() {
 		return "Map [layers=" + layers.toString() + ", center=" + center + ", width="
@@ -179,6 +240,11 @@ public class Map {
 				+ ", zoom=" + zoom + ", minZoom=" + minZoom + ", maxZoom="
 				+ maxZoom + ", zoomControl=" + zoomControl + ", zoomEnabled="
 				+ zoomEnabled + ", dragging=" + draggingEnabled + ", layerControl="
+                                + ", miniMap=" + miniMap
+                                + ", miniMapWidth=" + miniMapWidth
+                                + ", miniMapHeight=" + miniMapHeight
+                                + ", miniMapPosition=" + miniMapPosition
+                                + ", urlTemplate=" + urlTemplate
 				+ layerControl + "]";
 	}
 

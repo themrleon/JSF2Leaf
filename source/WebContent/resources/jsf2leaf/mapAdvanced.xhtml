@@ -34,6 +34,12 @@ GNU General Public License for more details.
 		
 		<link rel="stylesheet" href="#{resource['css:markercluster.css']}" />
 		<script src="#{resource['js:markercluster.js']}"></script>
+                
+		<link rel="stylesheet" href="#{resource['css:Control.MiniMap.min.css']}" />
+		<script src="#{resource['js:Control.MiniMap.min.js']}"></script>
+                
+		<link rel="stylesheet" href="#{resource['css:L.Icon.Pulse.css']}" />
+		<script src="#{resource['js:L.Icon.Pulse.js']}"></script>
 	</head>
 
 	<style type="text/css">
@@ -47,10 +53,8 @@ GNU General Public License for more details.
 	<script type="text/javascript">
 		var map_#{cc.attrs.id} = L.map('#{cc.attrs.id}', {center: [#{cc.mapObject.center.latitude},#{cc.mapObject.center.longitude}], dragging: #{cc.mapObject.draggingEnabled}, zoomControl: #{cc.mapObject.zoomControl} , zoom: #{cc.mapObject.zoom}});
 		
-		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {id: 'osm', attribution: '#{cc.mapObject.attribution}', maxZoom: #{cc.mapObject.maxZoom}, minZoom: #{cc.mapObject.minZoom}}).addTo(map_#{cc.attrs.id});
+		L.tileLayer('#{cc.mapObject.urlTemplate}', {id: 'osm', attribution: '#{cc.mapObject.attribution}', maxZoom: #{cc.mapObject.maxZoom}, minZoom: #{cc.mapObject.minZoom}}).addTo(map_#{cc.attrs.id});
 
-		var icon = new L.Icon({iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [0, -45], iconUrl: '#{resource['images:marker-icon.png']}', shadowUrl: '#{resource['images:marker-shadow.png']}'});
-		
 		if(#{cc.mapObject.layerControl})
 			var layers = L.control.layers();
 	
@@ -62,7 +66,18 @@ GNU General Public License for more details.
 			map_#{cc.attrs.id}.boxZoom.disable();
 			map_#{cc.attrs.id}.keyboard.disable();
 		}
-	
+
+		if(#{cc.mapObject.miniMap})
+                {
+			new L.Control.MiniMap(L.tileLayer('#{cc.mapObject.urlTemplate}', {}), {
+				toggleDisplay: true,
+				zoomAnimation: true,
+				position: '#{cc.mapObject.miniMapPosition}',
+				width: #{cc.mapObject.miniMapWidth},
+				height: #{cc.mapObject.miniMapHeight}
+			}).addTo(map_#{cc.attrs.id});
+		}
+
 		//Layers
 		<ui:repeat value="#{cc.mapObject.layers}" var="layer">	
 			
@@ -73,8 +88,14 @@ GNU General Public License for more details.
 			
 			//Markers
 			<ui:repeat value="#{layer.markers}" var="marker">
-				var marker = L.marker([#{marker.position.latitude}, #{marker.position.longitude}],{icon: icon});
-					
+
+                                if(!#{marker.pulse.pulsing}) {
+                        		var icon = new L.Icon({iconSize: [25, 41], iconAnchor: [12, 41], popupAnchor: [0, -45], iconUrl: '#{resource['images:marker-icon.png']}', shadowUrl: '#{resource['images:marker-shadow.png']}'});
+                                } else {
+                                        var icon = L.icon.pulse({iconSize:[#{marker.pulse.size},#{marker.pulse.size}],color:'#{marker.pulse.color}'});
+                                }
+                                var marker = L.marker([#{marker.position.latitude}, #{marker.position.longitude}],{icon: icon});
+                                        
 				if('#{marker.popupMsg}')
 					marker.bindPopup('#{marker.popupMsg}');
 				

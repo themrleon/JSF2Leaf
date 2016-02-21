@@ -34,6 +34,11 @@ GNU General Public License for more details.
 	<composite:attribute name="zoomControl" default="true" type="java.lang.Boolean" />
 	<composite:attribute name="zoomGlobal" default="true" type="java.lang.Boolean" />
 	<composite:attribute name="attribution" default="Map data &copy; &lt;a href=&quot;http://openstreetmap.org&quot;&gt;OpenStreetMap&lt;/a&gt; contributors,&lt;a href=&quot;http://creativecommons.org/licenses/by-sa/2.0/&quot;&gt;CC-BY-SA&lt;/a&gt;" type="java.lang.String" />
+	<composite:attribute name="miniMap" default="false" type="java.lang.Boolean" />
+	<composite:attribute name="miniMapWidth" default="100" type="java.lang.String" />
+	<composite:attribute name="miniMapHeight" default="100" type="java.lang.String" />
+	<composite:attribute name="miniMapPosition" default="bottomright" type="java.lang.String" />
+	<composite:attribute name="urlTemplate" default="http://{s}.tile.osm.org/{z}/{x}/{y}.png" type="java.lang.String" />
 </composite:interface>
 
 <composite:implementation>
@@ -41,13 +46,16 @@ GNU General Public License for more details.
 	<head>
 		<link rel="stylesheet" href="#{resource['css:leaflet.css']}" />
 		<script src="#{resource['js:leaflet.js']}"></script>
+                
+		<link rel="stylesheet" href="#{resource['css:Control.MiniMap.min.css']}" />
+		<script src="#{resource['js:Control.MiniMap.min.js']}"></script>
 	</head>
 
 	<div id="#{cc.attrs.id}" style="width:#{cc.attrs.width}; height:#{cc.attrs.height}"/>
 	
 	<script>
-		var #{cc.attrs.id}_map = L.map('#{cc.attrs.id}', {center: [#{cc.attrs.center}], zoom: #{cc.attrs.zoom}, layers: L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {id: 'osm', attribution: '#{cc.attrs.attribution}', maxZoom: #{cc.attrs.maxZoom}, minZoom: #{cc.attrs.minZoom}}), dragging:#{cc.attrs.dragging}, zoomControl:#{cc.attrs.zoomControl} });
-				
+		var #{cc.attrs.id}_map = L.map('#{cc.attrs.id}', {center: [#{cc.attrs.center}], zoom: #{cc.attrs.zoom}, layers: L.tileLayer('#{cc.attrs.urlTemplate}', {id: 'osm', attribution: '#{cc.attrs.attribution}', maxZoom: #{cc.attrs.maxZoom}, minZoom: #{cc.attrs.minZoom}}), dragging:#{cc.attrs.dragging}, zoomControl:#{cc.attrs.zoomControl} });
+		
 		if('#{cc.attrs.marker}')
 		{
 			var #{cc.attrs.id}_marker = L.marker([#{cc.attrs.marker}],{icon: new L.Icon({iconSize: [25, 41], iconAnchor: [25, 41], popupAnchor: [-12, -45], iconUrl: '#{resource['images:marker-icon.png']}', shadowUrl: '#{resource['images:marker-shadow.png']}'})}).addTo(#{cc.attrs.id}_map);
@@ -64,6 +72,18 @@ GNU General Public License for more details.
 			#{cc.attrs.id}_map.boxZoom.disable();
 			#{cc.attrs.id}_map.keyboard.disable();
 		}
+                
+		if(#{cc.attrs.miniMap})
+		{
+			new L.Control.MiniMap(L.tileLayer('#{cc.attrs.urlTemplate}', {}), {
+				toggleDisplay: true,
+				zoomAnimation: true,
+				position: '#{cc.attrs.miniMapPosition}',
+				width: #{cc.attrs.miniMapWidth},
+				height: #{cc.attrs.miniMapHeight}
+			}).addTo(#{cc.attrs.id}_map);
+                }
+                    
 	</script>
 
 </composite:implementation>

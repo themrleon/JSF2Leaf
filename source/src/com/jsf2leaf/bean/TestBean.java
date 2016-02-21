@@ -23,10 +23,12 @@ import com.jsf2leaf.model.Layer;
 import com.jsf2leaf.model.Map;
 import com.jsf2leaf.model.Marker;
 import com.jsf2leaf.model.Polyline;
+import com.jsf2leaf.model.Pulse;
+import java.io.Serializable;
 
 @ManagedBean(name = "testBean")
 @ViewScoped 
-public class TestBean {
+public class TestBean implements Serializable { // "implements Serializable" to fix WELD-000072
 
 	private Map springfieldMap = new Map();
 
@@ -34,12 +36,17 @@ public class TestBean {
 	{
 		//Configure Map
 		springfieldMap.setWidth("350px").setHeight("250px").setCenter(new LatLong("42.111707","-72.541008")).setZoom(13);
-		
+                springfieldMap.setAttribution("JSF2Leaf | Your business");
+                springfieldMap.setMiniMap(true);
+                springfieldMap.setMiniMapWidth(100);
+                springfieldMap.setMiniMapHeight(66);
+                springfieldMap.setMiniMapPosition("bottomright");
+
 		//Places Layer
 		Layer placesLayer = (new Layer()).setLabel("Places");
 		placesLayer.addMarker(new Marker(new LatLong("42.120000","-72.540000"),"<b>Krusty Burger</b><br>Phone: 555-5555"));
 		placesLayer.addMarker(new Marker(new LatLong("42.114556","-72.526309"),"<b>Elementary School</b><br>Skinner&#39;s Phone: 555-5555"));
-		placesLayer.addMarker(new Marker(new LatLong("42.120286","-72.547488"),"<b>Hospital</b><br>Dr. Hibbert lol"));
+		placesLayer.addMarker(new Marker(new LatLong("42.120286","-72.547488"),"<b>Hospital</b><br>Dr. Hibbert lol", new Pulse(true, 10, "#ff0000")));
 		springfieldMap.addLayer(placesLayer);
 		
 		//Cluster Layer
